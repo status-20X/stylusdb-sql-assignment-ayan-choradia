@@ -10,13 +10,14 @@ function evaluateCondition(row, clause) {
     row[field] = row[field].replace(/["']/g, '');
 
     if (operator === 'LIKE') {
-        // Transform SQL LIKE pattern to JavaScript RegExp pattern
+        // Transform SQL LIKE pattern to JavaScript RegExp patternn
         const regexPattern = '^' + value.replace(/%/g, '.*').replace(/_/g, '.') + '$';
         const regex = new RegExp(regexPattern, 'i'); // 'i' for case-insensitive matching
     
 
         return regex.test(row[field]);
     }
+    //ayan
 
     switch (operator) {
         case '=':  return row[field] == value;
